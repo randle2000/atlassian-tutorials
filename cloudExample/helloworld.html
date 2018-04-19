@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+     <link rel="stylesheet" href="//aui-cdn.atlassian.com/aui-adg/5.9.12/css/aui.min.css" media="all">
+ </head>
+ <body>
+     <section id="content" class="ac-content">
+         <div class="aui-page-header">
+             <div class="aui-page-header-main">
+                 <h1>Hello World</h1>
+             </div>
+         </div>
+     </section>
+
+     <script id="connect-loader" data-options="sizeToParent:true;">
+         (function() {
+             var getUrlParam = function (param) {
+                 var codedParam = (new RegExp(param + '=([^&]*)')).exec(window.location.search)[1];
+                 return decodeURIComponent(codedParam);
+             };
+
+             var baseUrl = getUrlParam('xdm_e') + getUrlParam('cp');
+             var options = document.getElementById('connect-loader').getAttribute('data-options');
+
+             var script = document.createElement("script");
+             script.src = baseUrl + '/atlassian-connect/all.js';
+
+             if(options) {
+                 script.setAttribute('data-options', options);
+             }
+
+             document.getElementsByTagName("head")[0].appendChild(script);
+         })();
+     </script>
+
+ </body>
+</html>
