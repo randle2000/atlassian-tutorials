@@ -1,0 +1,32 @@
+{
+  "key": "${addon.key}",
+  "baseUrl": "${addon.base-url}",
+  "name": "Spring Boot Cloud (Spring Boot)",
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "modules": {
+    "generalPages": [
+      {
+        "key": "thymeleaf-page-jira",
+        "location": "system.top.navigation.bar",
+        "name": {
+          "value": "Spring-boot"
+        },
+        "url": "/spring-boot"
+      },
+      {
+        "key": "thymeleaf-page-confluence",
+        "location": "system.header/left",
+        "name": {
+          "value": "Spring-boot"
+        },
+        "url": "/spring-boot"
+      }
+    ]
+  }
+}

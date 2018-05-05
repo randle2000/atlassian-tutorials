@@ -1,0 +1,11 @@
+spring.jpa.hibernate.ddl-auto: none
+spring.datasource.url: jdbc:hsqldb:file:addon-db # Use a file-based backing store for HSQL
+
+addon:
+  key: spring-boot-cloud
+  #base-url: http://localhost:${local.server.port}
+  base-url: https://90a85120.ngrok.io
+
+logging.level.com.atlassian.connect.spring: DEBUG
+
+spring.thymeleaf.cache: false
