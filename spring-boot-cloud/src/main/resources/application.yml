@@ -4,7 +4,7 @@ spring.datasource.url: jdbc:hsqldb:file:addon-db # Use a file-based backing stor
 addon:
   key: spring-boot-cloud
   #base-url: http://localhost:${local.server.port}
-  base-url: https://90a85120.ngrok.io
+  base-url: https://bcba97b1.ngrok.io
 
 logging.level.com.atlassian.connect.spring: DEBUG
 

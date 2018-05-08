@@ -16,7 +16,36 @@
         <div class="aui-page-panel-inner">
             <section class="aui-page-panel-item">
                 <div class="aui-group">
-                    <div class="aui-item">Hello, <span th:text="${#authentication.principal.userKey.get()}">User</span>!</div>
+                    <div class="aui-item">
+                    	Hello, <span th:text="${#authentication.principal.userKey.get()}">User</span>!
+                    	
+                    	<table class="table table-hover table-striped">
+							<thead>
+								<tr>
+									<th class="firstColumn">#ID</th>
+									<th>Key</th>
+									<th>Summary</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+
+							<tbody id="myTBody">
+							    <tr th:each="issue : ${issues}" class="myRow">
+							    	<td class="firstColumn">
+							    		<span th:text="${issue.getId()}"></span>
+							    	</td>
+							    	<td width="10%">
+							    		<span th:text="${issue.getKey()}"></span>
+							    	</td>
+							    	<td width="70%">
+							    		<span th:text="${issue.summary}"></span>
+							    	</td>
+							    	<td width="20%">
+							    		<span th:text="${issue.description}"></span>
+							    	</td>
+								</tr>
+							</tbody>
+                    </div>
                 </div>
             </section>
         </div>

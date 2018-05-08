@@ -11,8 +11,7 @@ Requires [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.
 - if you need help see [cloudExample](https://developer.atlassian.com/cloud/jira/platform/getting-started/)
 - `ngrok http 8080`
 - edit "base-url" in application.yml
-- `mvn clean package`  
-  `mvn spring-boot:run`
+- `mvn spring-boot:run`
 - Open [Manage add-ons] at *https://[your_cloud_site].atlassian.net/plugins/servlet/upm*
 - Upload Add-on: *https://[your_ngrok_site].ngrok.io/atlassian-connect.json*
 

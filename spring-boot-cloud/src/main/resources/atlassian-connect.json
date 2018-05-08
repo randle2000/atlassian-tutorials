@@ -5,6 +5,9 @@
   "authentication": {
     "type": "jwt"
   },
+  "scopes": [
+    "read", "write", "act_as_user"
+  ],
   "lifecycle": {
     "installed": "/installed",
     "uninstalled": "/uninstalled"
