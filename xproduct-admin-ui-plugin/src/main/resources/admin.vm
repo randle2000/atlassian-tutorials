@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>XProduct Admin</title>
+    
+    <!-- This tells the application that it needs to use the admin decorator around the body of this page. UI decoration -->
+    <meta name="decorator" content="atl.admin">
+    
+    <!--
+    What is $webResourceManager and where does it come from? It’s the web resource manager from the plugin system used to manage CSS, JavaScript and other resources that are usually linked at the top of pages using <script>. Calling requireResource will include all the resources for the web-resource module along with its dependencies.
+	But where did the WebResourceManager come from? It was automatically added to the Velocity context by the TemplateRenderer. It makes a few things that are commonly useful available, like the WebResourceManager. 
+    -->
+    <!-- $webResourceManager.requireResource("com.atlassian.auiplugin:ajs") -->
+    $webResourceManager.requireResource("com.atlassian.plugins.tutorial.xproduct-admin-ui-plugin:resources")
+    
+  </head>
+  	
+  	<!--
+  	$i18n is an instance of SAL’s I18nResolver, which comes automatically with TemplateRenderer, just like the WebResourceManager. We use it to resolve our message keys to actual text.
+  	-->
+	<body>
+	    <form id="admin" class="aui">
+	      <div class="field-group">
+	        <label for="name">$i18n.getText("xproduct.admin.name.label")</label>
+	        <input type="text" id="name" name="name" class="text">
+	      </div>
+	      <div class="field-group">
+	        <label for="time">$i18n.getText("xproduct.admin.time.label")</label>
+	        <input type="text" id="time" name="time" class="text">
+	      </div>
+	      <div class="field-group">
+	        <input type="submit" value="$i18n.getText("xproduct.admin.save.label")" class="button">
+	      </div>
+	    </form>
+	</body>
+</html>

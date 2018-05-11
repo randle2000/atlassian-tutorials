@@ -1,0 +1,68 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="xproduct-admin-ui-plugin"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="xproduct-admin-ui-plugin-resources" name="xproduct-admin-ui-plugin Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="xproduct-admin-ui-plugin.css" location="/css/xproduct-admin-ui-plugin.css"/>
+        <resource type="download" name="xproduct-admin-ui-plugin.js" location="/js/xproduct-admin-ui-plugin.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>xproduct-admin-ui-plugin</context>
+    </web-resource>
+    
+    <!-- Our servlet -->
+    <servlet key="admin-servlet" class="com.atlassian.plugins.tutorial.xproductadminui.AdminServlet">
+  		<url-pattern>/xproduct/admin</url-pattern>
+	</servlet>
+	
+	<!-- We need to add the rest module, so that the plugin system knows about the REST resource and where to find it. -->
+	<rest key="rest" path="/xproduct-admin" version="1.0">
+	  <description>Provides REST resources for the admin UI.</description>
+	</rest>
+	
+	<!--
+	Add menu items
+	Unfortunately, not every Atlassian product uses the same layout for menus, so we need to add a link entry for each product.
+	-->
+	
+	<!-- To add a link in the ‘Global Settings’ menu in JIRA’s administration area, add the following web-item element. -->
+	<web-item key="jira-menu-item" name="XProduct Admin" section="system.admin/globalsettings" weight="10" application="jira">
+	  <description>Link to xproduct-admin page.</description> 
+	  <label key="xproduct.admin.label" /> 
+	  <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link> 
+	</web-item> 
+	
+	<!-- To add a link in the ‘Plugins’ menu in Bamboo’s administration area, add the following web-item element. -->
+	<!-- Looking carefully, you’ll notice that the label key attribute isn’t really a key. This is because Bamboo doesn’t do any internationalization yet, so the value of the key attribute will be the text that is displayed. -->
+	<web-item key="bamboo-menu-item" name="XProduct Admin" section="system.admin/plugins" weight="10" application="bamboo"> 
+	  <description>Link to xproduct-admin page.</description> 
+	  <label key="XProduct Admin" /> 
+	  <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link> 
+	</web-item>
+	
+	<!-- To add a link in the ‘Configuration’ menu in Confluence’s administration area, add the following web-item element. -->
+	<web-item key="conf-menu-item" name="XProduct Admin" section="system.admin/configuration" weight="10"> 
+	  <description>Link to xproduct-admin page.</description> 
+	  <label key="xproduct.admin.label" /> 
+	  <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link> 
+	</web-item>  
+	
+	<!-- To add a link in the ‘General menu’ in the RefApp’s administration area. -->
+	<web-item key="refapp-menu-item" name="XProduct Admin" section="system.admin/general" weight="10" application="refapp"> 
+	  <description>Link to xproduct-admin page.</description> 
+	  <label key="xproduct.admin.label" /> 
+	  <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link> 
+	</web-item> 		
+	
+</atlassian-plugin>
