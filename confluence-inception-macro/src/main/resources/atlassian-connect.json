@@ -1,0 +1,44 @@
+{
+  "name": "Inception",
+  "description": "A page in a page (what)",
+  "key": "com.atlassian.connect.atlascamp.inception",
+  "baseUrl": "https://e074f1b8.ngrok.io",
+  "vendor": {
+    "name": "Atlassian",
+    "url": "http://www.atlassian.com"
+  },
+  "authentication": {
+    "type": "jwt"
+  },
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "apiVersion": 1,
+  "scopes": [
+    "read"
+  ],
+  "modules": {
+    "dynamicContentMacros": [ {
+        "url": "/inception-macro?pageId={page.id}",
+        "description": {
+          "value": "A page in a page"
+        },
+        "name": {
+          "value": "Inception"
+        },
+        "categories": [
+          "visuals"
+        ],
+        "outputType": "block",
+        "bodyType": "none",
+        "aliases": [
+          "inception"
+        ],
+        "featured": true,
+        "parameters": [],
+        "key": "inception-macro"
+      }
+    ]
+  }
+}
