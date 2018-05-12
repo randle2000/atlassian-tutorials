@@ -25,6 +25,10 @@ Maybe it has to do with $webResourceManager in admin.vm
 ### To run as Bamboo: 
 
 	atlas-run --product bamboo --version 5.14.1
+	
+### To open in Eclipse:
 
+	atlas-mvn eclipse:eclipse
+	
 	
 - If a link to the plugin does not exist, check that the plug-in we created is loaded via “Manage add-on”, selecting the option to see “All add-ons” and looking for the entry xproduct-admin-ui-plugin
