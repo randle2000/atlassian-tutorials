@@ -9,12 +9,13 @@
 	<!-- you may use either "project aggregation" or "inheritance" or both -->
 	<!-- if inheriting child omits groupId and artifactId then it will be taken from here. But it does need to specify its own artifactId -->
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <java.version>1.8</java.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <osgi.version>6.0.0</osgi.version>
     </properties>
 
 	<!-- project aggregation -->
@@ -23,8 +24,9 @@
 	<!-- if these modules do not list this POM in their <parent> section, they will not inherit anything from this POM -->
 	<!-- (by practice, we use the module's artifactId as the module directory's name) -->
     <modules>
-        <module>osgi-intro-sample-service</module>
-        <module>osgi-intro-sample-client</module>
+        <module>osgi-api</module>
+        <module>osgi-client</module>
+        <module>osgi-service1</module>
     </modules>
 	
 	<!-- dependencies listed here are automatically inherited by children's POMs (i.e. those who list this POM in their <parent> section) -->
@@ -37,18 +39,23 @@
         <dependencies>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>osgi-intro-client</artifactId>
+                <artifactId>osgi-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>osgi-intro-service</artifactId>
+                <artifactId>osgi-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>osgi-service1</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.core</artifactId>
-                <version>6.0.0</version>
+                <version>${osgi.version}</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>

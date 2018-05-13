@@ -3,20 +3,25 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- mvn:com.sln/osgi-intro-sample-service/1.0-SNAPSHOT -->
+    <!-- mvn:com.sln/osgi-service1/2.0-SNAPSHOT -->
     <parent>
         <artifactId>osgi-intro</artifactId>
         <groupId>com.sln</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>2.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>osgi-intro-sample-service</artifactId>
+    <artifactId>osgi-service1</artifactId>
 
     <!-- Please, note this is not the usual 'jar'. -->
     <packaging>bundle</packaging>
 
     <dependencies>
+		<!-- versions are taken from <dependencyManagement> of parent pom.xml -->
+        <dependency>
+            <groupId>com.sln</groupId>
+            <artifactId>osgi-api</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
@@ -34,9 +39,9 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>com.sln.osgi.sample.service.implementation.GreeterImpl</Bundle-Activator>
-                        <Private-Package>com.sln.osgi.sample.service.implementation</Private-Package>
-                        <Export-Package>com.sln.osgi.sample.service.definition</Export-Package>
+                        <Bundle-Activator>com.sln.osgi.service.GreeterImpl1</Bundle-Activator>
+                        <Private-Package>com.sln.osgi.service</Private-Package>
+                        <Export-Package>com.sln.osgi.api</Export-Package>
                     </instructions>
                 </configuration>
             </plugin>

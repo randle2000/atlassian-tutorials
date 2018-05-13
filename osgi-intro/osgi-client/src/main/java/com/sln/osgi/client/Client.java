@@ -1,6 +1,6 @@
-package com.sln.osgi.sample.client;
+package com.sln.osgi.client;
 
-import com.sln.osgi.sample.service.definition.Greeter;
+import com.sln.osgi.api.Greeter;
 import org.osgi.framework.*;
 
 public class Client implements BundleActivator, ServiceListener {

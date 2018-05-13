@@ -5,20 +5,20 @@
     <parent>
         <artifactId>osgi-intro</artifactId>
         <groupId>com.sln</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>2.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- mvn:com.sln/osgi-intro-sample-client/1.0-SNAPSHOT -->
-    <artifactId>osgi-intro-sample-client</artifactId>
+    <!-- mvn:com.sln/osgi-client/2.0-SNAPSHOT -->
+    <artifactId>osgi-client</artifactId>
 
     <packaging>bundle</packaging>
 
     <dependencies>
+		<!-- versions are taken from <dependencyManagement> of parent pom.xml -->
         <dependency>
             <groupId>com.sln</groupId>
-            <artifactId>osgi-intro-sample-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>osgi-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
@@ -36,9 +36,11 @@
                         <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Bundle-Version>${project.version}</Bundle-Version>
-                        <Bundle-Activator>com.sln.osgi.sample.client.Client</Bundle-Activator>
+                        <Bundle-Activator>com.sln.osgi.client.Client</Bundle-Activator>
+						
+						<Export-Package>com.sln.osgi.api</Export-Package>
 
-                        <Private-Package>com.sln.osgi.sample.client</Private-Package>
+                        <Private-Package>com.sln.osgi.client</Private-Package>
 
                     </instructions>
                 </configuration>

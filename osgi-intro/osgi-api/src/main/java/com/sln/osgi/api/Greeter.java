@@ -1,4 +1,4 @@
-package com.sln.osgi.sample.service.definition;
+package com.sln.osgi.api;
 
 public interface Greeter {
 
