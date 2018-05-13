@@ -27,6 +27,7 @@
         <module>osgi-api</module>
         <module>osgi-client</module>
         <module>osgi-service1</module>
+        <module>osgi-service2</module>
     </modules>
 	
 	<!-- dependencies listed here are automatically inherited by children's POMs (i.e. those who list this POM in their <parent> section) -->
@@ -40,16 +41,6 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>osgi-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>osgi-client</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>osgi-service1</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

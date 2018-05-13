@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- mvn:com.sln/osgi-service2/2.0-SNAPSHOT -->
+    <parent>
+        <artifactId>osgi-intro</artifactId>
+        <groupId>com.sln</groupId>
+        <version>2.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>osgi-service2</artifactId>
+
+    <!-- Please, note this is not the usual 'jar'. -->
+    <packaging>bundle</packaging>
+
+    <dependencies>
+		<!-- versions are taken from <dependencyManagement> of parent pom.xml -->
+        <dependency>
+            <groupId>com.sln</groupId>
+            <artifactId>osgi-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-Activator>com.sln.osgi.service.GreeterImpl2</Bundle-Activator>
+                        <Private-Package>com.sln.osgi.service</Private-Package>
+                        <Export-Package>com.sln.osgi.api</Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
