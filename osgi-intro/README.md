@@ -22,3 +22,7 @@ stop <SERVICE_ID>
 uninstall <CLIENT_ID>
 uninstall <SERVICE_ID>
 ```	
+
+### Further feature
+This example is valid when there is only one instance of service.
+To enchance client with ability to work with multiple services (where each service implements the same API interface) see "4.3.3 Tracking services" in "OSGi in Action" book (page.141)

@@ -5,6 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sln</groupId>
     <artifactId>osgi-intro</artifactId>
+	<!-- whenever you use "project aggregation" or inherit from this POM (by using <parent> in children POMs), packaging in parent MUST ALWAYS be pom -->
+	<!-- you may use either "project aggregation" or "inheritance" or both -->
+	<!-- if inheriting child omits groupId and artifactId then it will be taken from here. But it does need to specify its own artifactId -->
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -14,12 +17,22 @@
         <java.version>1.8</java.version>
     </properties>
 
+	<!-- project aggregation -->
+	<!-- any command (like mvn package) executed against this project will be executed against every module listed here -->
+	<!-- these modules do not need to inherit (using <parent>) from this POM, but often do so -->
+	<!-- if these modules do not list this POM in their <parent> section, they will not inherit anything from this POM -->
+	<!-- (by practice, we use the module's artifactId as the module directory's name) -->
     <modules>
         <module>osgi-intro-sample-service</module>
         <module>osgi-intro-sample-client</module>
     </modules>
+	
+	<!-- dependencies listed here are automatically inherited by children's POMs (i.e. those who list this POM in their <parent> section) -->
+    <dependencies>
+    </dependencies>
 
-	<!-- child modules may skip specifying version (and scope?) for these dependencies -->
+	<!-- dependencies listed here are NOT added to this project, NOR are they inherited by children's POMs -->
+	<!-- but if child specifies just groupId and artifactId of dependency in its <dependencies> section, it may omit other stuff like version or scope - it will be taken from here -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -42,19 +55,23 @@
     </dependencyManagement>
 
     <build>
-		<!-- child modules may skip specifying version for these plugins -->
+		<!-- plugins listed here are inherited by children's POMs -->
+        <plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+        </plugins>
+		
+		<!-- plugins listed here are NOT automatically inherited by children's POMs -->
+		<!-- but if child specifies just groupId and artifactId of plugin, it may omit other stuff like version - it will be taken from here -->
         <pluginManagement>
             <plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${maven-compiler-plugin.version}</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
-				</plugin>
-			
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
