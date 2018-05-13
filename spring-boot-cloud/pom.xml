@@ -93,6 +93,26 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
+			
+			<!-- this will delete addon-db.* files and addon-db.tmp folder when command `mvn clean` is issued -->
+			<!-- see: https://maven.apache.org/plugins/maven-clean-plugin/examples/delete_additional_files.html -->
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+				  <filesets>
+					<fileset>
+					  <directory>${basedir}</directory>
+					  <includes>
+						<include>**/addon-db.tmp/**</include>
+						<include>addon-db.*</include>
+					  </includes>
+					  <followSymlinks>false</followSymlinks>
+					</fileset>
+				  </filesets>
+				</configuration>
+			</plugin>			
+			
         </plugins>
     </build>
 
