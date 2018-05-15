@@ -2,16 +2,16 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 .settings/
 .mvn/
-#.classpath
-#.project
+.classpath
+.project
 mvnw
 mvnw.cmd
 
 ### STS ###
 .apt_generated
-#.classpath
+.classpath
 .factorypath
-#.project
+.project
 .settings
 .springBeans
 

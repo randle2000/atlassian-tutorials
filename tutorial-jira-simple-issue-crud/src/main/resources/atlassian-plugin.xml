@@ -21,6 +21,13 @@
     <context>tutorial-jira-simple-issue-crud</context>
   </web-resource>
   
+  <web-item name="myItem" i18n-name-key="my-item.name" key="my-item" section="system.top.navigation.bar" weight="1000">
+    <description key="my-item.description">The web menu item</description>
+    <label key="my-item.label"/>
+    <link linkId="my-item-link">/plugins/servlet/issuecrud</link>
+  </web-item>
+
+  
   <servlet name="Issue CRUD" i18n-name-key="issue-crud.name" key="issue-crud" class="com.example.plugins.tutorial.crud.servlet.IssueCRUD">
     <description key="issue-crud.description">The Issue CRUD Plugin</description>
     <url-pattern>/issuecrud</url-pattern>

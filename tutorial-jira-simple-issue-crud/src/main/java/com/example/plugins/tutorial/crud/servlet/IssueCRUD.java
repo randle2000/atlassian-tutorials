@@ -33,32 +33,39 @@ import com.atlassian.templaterenderer.TemplateRenderer;
 import com.google.common.collect.Maps;
 
 @Scanned
-public class IssueCRUD extends HttpServlet{
+public class IssueCRUD extends HttpServlet {
+	
     private static final Logger log = LoggerFactory.getLogger(IssueCRUD.class);
     
+	@ComponentImport
     private IssueService issueService;
+	@ComponentImport
     private ProjectService projectService;
+	@ComponentImport
     private SearchService searchService;
+	@ComponentImport("salUserManager")	// need to set name "salUserManager" here because he have 2 UserManager interfaces. See https://bitbucket.org/atlassian/atlassian-spring-scanner/
     private UserManager userManager;
-    //@ComponentImport UserManager userManager;
-    private TemplateRenderer templateRenderer;
+	@ComponentImport
     private com.atlassian.jira.user.util.UserManager jiraUserManager;
+	@ComponentImport
+    private TemplateRenderer templateRenderer;
+	
     private static final String LIST_BROWSER_TEMPLATE = "/templates/list.vm";
     private static final String NEW_BROWSER_TEMPLATE = "/templates/new.vm";
     private static final String EDIT_BROWSER_TEMPLATE = "/templates/edit.vm";
 
-    //@Inject
-    public IssueCRUD(@ComponentImport IssueService issueService, @ComponentImport ProjectService projectService, 
-    		@ComponentImport SearchService searchService, @ComponentImport UserManager userManager,
-    		//com.atlassian.jira.user.util.UserManager jiraUserManager,
-            @ComponentImport TemplateRenderer templateRenderer) {
+    //@Inject	// not sure why it still works without @Inject/@Autowired here
+    public IssueCRUD(IssueService issueService,ProjectService projectService, 
+    		SearchService searchService, UserManager userManager,
+    		com.atlassian.jira.user.util.UserManager jiraUserManager,  
+            TemplateRenderer templateRenderer) {
         this.issueService = issueService;
         this.projectService = projectService;
         this.searchService = searchService;
         this.userManager = userManager;
         this.templateRenderer = templateRenderer;
-        //this.jiraUserManager = jiraUserManager;
-        this.jiraUserManager = com.atlassian.jira.component.ComponentAccessor.getUserManager();
+        this.jiraUserManager = jiraUserManager;
+        //this.jiraUserManager = com.atlassian.jira.component.ComponentAccessor.getUserManager();
     }    
 
 //    @Override
