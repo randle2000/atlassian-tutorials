@@ -2,7 +2,9 @@
   [Learn the development platform by example](https://developer.atlassian.com/server/framework/atlassian-sdk/learn-the-development-platform-by-example/)
   
 - **ao-tutorial** - Active Objects for *server*. A servlet that stores Todo entities as Active objects. Also shows how to unit-test AO  
+  2nd tutorial shows how to upgrade entity w/out losing old records when we introduce new field to it  
   [Tutorial Getting Started with Active Objects](https://developer.atlassian.com/server/framework/atlassian-sdk/getting-started-with-active-objects)  
+  [Handling AO upgrade tasks](https://developer.atlassian.com/server/framework/atlassian-sdk/handling-ao-upgrade-tasks/)  
   [AO tutorials root](https://developer.atlassian.com/server/framework/atlassian-sdk/active-objects/)
   
 - **cloudExample** - just an HTML example of plugin for *JIRA cloud*. Uses ngrok for tunneling.  

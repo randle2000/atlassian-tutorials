@@ -131,6 +131,14 @@
 		  <version>1.2.16</version>
 		  <scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 			
     </dependencies>
 
@@ -186,6 +194,10 @@
                         <!-- Ensure plugin is spring powered -->
                         <Spring-Context>*</Spring-Context>
                     </instructions>
+                    
+                    <!-- using log4j.properties from test profile -->
+                    <log4jProperties>src/test/resources/log4j.properties</log4jProperties>
+                    
                 </configuration>
             </plugin>
 
@@ -221,12 +233,16 @@
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
 		<ao.version>1.5.0</ao.version>
+		<mockito.version>2.18.3</mockito.version>
 
         <!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        
+        <!-- if you want to skip tests -->
+        <!-- <maven.test.skip>true</maven.test.skip> -->
     </properties>
 
 </project>
