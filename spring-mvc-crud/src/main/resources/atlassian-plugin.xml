@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="spring-mvc-crud"/>
+  
+  <!-- add our web resources -->
+  <web-resource key="spring-mvc-crud-resources" name="spring-mvc-crud Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="spring-mvc-crud.css" location="/css/spring-mvc-crud.css"/>
+    <resource type="download" name="spring-mvc-crud.js" location="/js/spring-mvc-crud.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>spring-mvc-crud</context>
+  </web-resource>
+  
+  <servlet name="My Servlet 2" i18n-name-key="my-servlet2.name" key="my-servlet2" class="com.sln.plugins.servlet.MyServlet">
+    <description key="my-servlet2.description">The My Servlet Plugin</description>
+    <url-pattern>/myservlet</url-pattern>
+  </servlet>
+  
+  <servlet name="My Servlet" i18n-name-key="my-servlet.name" key="my-servlet" class="org.springframework.web.servlet.DispatcherServlet">
+    <description key="my-servlet.description">The My Servlet Plugin</description>
+    <url-pattern>/spring/*</url-pattern>
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value></param-value>
+		<!-- <param-value>classpath:/META-INF/spring/root-context.xml</param-value> -->
+	</init-param>
+  </servlet>
+  
+  
+  <!--
+  <servlet-context-listener name="My Servlet Context Listener" i18n-name-key="my-servlet-context-listener.name" key="my-servlet-context-listener" class="org.springframework.web.context.ContextLoaderListener">
+    <description key="my-servlet-context-listener.description">The My Servlet Context Listener Plugin</description>
+  </servlet-context-listener>
+  
+  <servlet-context-param name="MyContextParam" i18n-name-key="my-context-param.name" key="my-context-param">
+    <description key="my-context-param.description">The MyContextParam Plugin</description>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:/META-INF/spring/root-context.xml</param-value>
+  </servlet-context-param>
+  -->
+  
+</atlassian-plugin>

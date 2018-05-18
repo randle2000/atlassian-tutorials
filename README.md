@@ -26,6 +26,8 @@
 
 - **spring-boot-cloud** - SpringBoot Connect plugin for *JIRA cloud* with Thymeleaf. Shows how to retrieve issues via REST API, parses JSON responses using [JIRA REST Java Client Library](https://ecosystem.atlassian.net/wiki/spaces/JRJC/overview).
 
+- **spring-mvc-crud** - attempt to use Spring MVC from plugin - doesn't work. README.md has reference to article showing how to use Spring Beans with java config from plugins
+
 - **testTutorial** - plugin for *JIRA server* showing how to do Unit Testing and Integration Testing. Also mentions Plugin Test Console.  
   [Writing and running plugin tests](https://developer.atlassian.com/server/framework/atlassian-sdk/writing-and-running-plugin-tests/)
   
