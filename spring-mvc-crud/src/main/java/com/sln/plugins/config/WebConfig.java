@@ -11,6 +11,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.sln.plugins.controllers")
+//@ComponentScan(basePackageClasses = com.sln.plugins.controllers.MainController.class)
 public class WebConfig {
 	/*
     @Bean

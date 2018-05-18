@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 public class MyServlet extends HttpServlet{
     private static final Logger log = LoggerFactory.getLogger(MyServlet.class);
 
@@ -16,7 +17,7 @@ public class MyServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         resp.setContentType("text/html");
-        resp.getWriter().write("<html><body>Hello World</body></html>");
+        resp.getWriter().write("<html><body>Hello Worldy</body></html>");
     }
 
 }

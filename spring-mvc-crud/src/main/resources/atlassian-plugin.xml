@@ -26,7 +26,7 @@
     <url-pattern>/myservlet</url-pattern>
   </servlet>
   
-  <servlet name="My Servlet" i18n-name-key="my-servlet.name" key="my-servlet" class="org.springframework.web.servlet.DispatcherServlet">
+  <servlet name="My Servlet" i18n-name-key="my-servlet.name" key="my-servlet" class="com.sln.plugins.servlet.MyDispatcherServlet">
     <description key="my-servlet.description">The My Servlet Plugin</description>
     <url-pattern>/spring/*</url-pattern>
 	<init-param>
