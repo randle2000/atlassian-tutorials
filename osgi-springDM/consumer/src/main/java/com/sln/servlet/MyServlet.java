@@ -15,14 +15,14 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 
 import com.sln.service.api.MyPluginComponent;
 
-@Scanned
+//@Scanned
 public class MyServlet extends HttpServlet{
     private static final Logger log = LoggerFactory.getLogger(MyServlet.class);
 	
-	@ComponentImport
+	//@ComponentImport
 	private MyPluginComponent mpc;
 	
-	@Inject
+	//@Inject
 	public void setMyPluginComponent(MyPluginComponent mpc) {
 		this.mpc = mpc;
 	}

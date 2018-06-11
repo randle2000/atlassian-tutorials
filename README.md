@@ -24,6 +24,9 @@
   
 - **osgi-intro** - my example showing the use of a client and 2 services
 
+- **osgi-springDM** - my example showing the use of 2 plugins as separate OSGi bundles: one service and one consumer servlet.  
+  The code branch has 2 TAGs: one with Spring Scanner annotations (like `@ExportAsService` or `@ComponentImport`) and another one with XML config for SpringDM.
+
 - **spring-boot-cloud** - SpringBoot Connect plugin for *JIRA cloud* with Thymeleaf. Shows how to retrieve issues via REST API, parses JSON responses using [JIRA REST Java Client Library](https://ecosystem.atlassian.net/wiki/spaces/JRJC/overview).
 
 - **spring-mvc-crud** - attempt to use Spring MVC from plugin - doesn't work. README.md has reference to article showing how to use Spring Beans with java config from plugins
